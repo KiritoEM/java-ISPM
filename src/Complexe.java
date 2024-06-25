@@ -34,6 +34,14 @@ public class Complexe {
         this.re = re;
     }
 
+    public Complexe produit(Complexe autre) {
+        return new Complexe((this.re * autre.re) - (this.im * autre.im), (this.re * autre.im) + (this.im * autre.re));
+    }
+
+    public double module() {
+        return Math.sqrt(Math.pow(this.re, 2) + Math.pow(this.im, 2));
+    }
+
     // méthode principale
     public static void main(String args[]) {
         Complexe c1 = new Complexe(3, 4);
@@ -56,5 +64,13 @@ public class Complexe {
         // Affichage via des getters et setters
         c1.setRe(5);
         System.out.println("valeur du re privé via le getter: " + c1.getRe());
+
+        // produit complexe
+        Complexe c5 = c1.produit(c2);
+        System.out.println("Produit de c1 et c2: ");
+        c5.afficher();
+
+        // module de c1 et c3 par la méthode somme de la classe Complexe
+        System.out.print("module de c1: z=  " + c1.module());
     }
 }
